@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Number Game</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        input { padding: 10px; font-size: 16px; }
+        .message { font-size: 20px; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🎲 Guess the Secret Number!</h1>
+    <form method="POST">
+        <input type="number" name="guess" min="1" max="50" required>
+        <button type="submit">Guess!</button>
+    </form>
+    <div class="message">{{ message }}</div>
+</body>
+</html>
