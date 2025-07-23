@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Guess the Number Game</title>
-    <style>
-        body { font-family: Arial; text-align: center; margin-top: 50px; }
-        input { padding: 10px; font-size: 16px; }
-        .message { font-size: 20px; margin: 20px; }
-    </style>
-</head>
-<body>
-    <h1>🎲 Guess the Secret Number!</h1>
-    <form method="POST">
-        <input type="number" name="guess" min="1" max="50" required>
-        <button type="submit">Guess!</button>
-    </form>
-    <div class="message">{{ message }}</div>
-</body>
+  <head>
+    <title>False Number</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon.png" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="welcome-screen animate__animated  animate__fadeInDown {% if show_game %}hidden{% endif %}"  >
+      <h1> Welcome to the Secret Number Game!🎉</h1>
+      <button id="start-button" class="Btn">Start Game</button>
+    </div>
+    <div class="content animate__animated  animate__fadeInDown  {% if not show_game %}hidden{% endif %}" id="game-section" >
+      <h2 > Guess the Secret Number between 1 and 50!🎲</h2>
+      <h3> fewer guesses means bigger bragging rights 😎</h3>
+      <form method="POST" class="main-content" id="guess-form">
+        <input type="number" name="guess" min="1" max="50" required class="input-main" />
+        <button type="submit" class="Btn">Guess!</button>
+      </form>
+      <div class="message">{{ message }}</div>
+    </div>
+      <script>
+      document.getElementById("start-button").addEventListener("click", function () {
+      document.querySelector(".welcome-screen").style.display = "none";
+      document.getElementById("game-section").style.display = "flex"; 
+    });
+  
+  </script>
+  </body>
 </html>
